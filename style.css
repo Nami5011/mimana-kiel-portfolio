@@ -1,0 +1,349 @@
+body main {
+  color: #333;
+  font-family: "Nunito Sans", "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.group-fade-in-img img {
+  opacity: 0;
+  position: relative;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  -webkit-transition: opacity 1.5s ease-in-out, -webkit-transform 1.2s ease-out;
+  transition: opacity 1.5s ease-in-out, -webkit-transform 1.2s ease-out;
+  transition: opacity 1.5s ease-in-out, transform 1.2s ease-out;
+  transition: opacity 1.5s ease-in-out, transform 1.2s ease-out, -webkit-transform 1.2s ease-out;
+}
+@media screen and (max-width: 767px) {
+  .group-fade-in-img img {
+    -webkit-transition: opacity 1s ease-in-out, -webkit-transform 1.2s ease-out;
+    transition: opacity 1s ease-in-out, -webkit-transform 1.2s ease-out;
+    transition: opacity 1s ease-in-out, transform 1.2s ease-out;
+    transition: opacity 1s ease-in-out, transform 1.2s ease-out, -webkit-transform 1.2s ease-out;
+  }
+}
+.group-fade-in-img img.fade-in {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.scroll-nav {
+  -webkit-animation: scroll-nav 1.7s ease-out;
+          animation: scroll-nav 1.7s ease-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
+  opacity: 1;
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-image: url(img/arrow-down-linear.png?v=2);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 12vh;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+@media screen and (max-width: 767px) {
+  .scroll-nav {
+    bottom: 8vh;
+  }
+}
+.scroll-nav.scroll-nav-hide {
+  opacity: 0;
+}
+
+@-webkit-keyframes scroll-nav {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes scroll-nav {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+main.home .home-content .section-fv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-height: 900px;
+  position: relative;
+}
+main.home .home-content .name-en {
+  margin: 20px 0 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-size: 48px;
+  font-weight: 500;
+}
+@media screen and (max-width: 767px) {
+  main.home .home-content .name-en {
+    font-size: 38.4px !important;
+  }
+}
+main.home .home-content .name-jp {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+@media screen and (max-width: 767px) {
+  main.home .home-content .name-jp {
+    font-size: 16px !important;
+    margin: 0 0 5px;
+  }
+}
+main.home .home-content .p-professions {
+  color: #909090;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 300;
+  margin: 0 0 30px;
+}
+main.home .home-content h2 {
+  line-height: 1.4;
+  margin: 0 0 40px;
+  font-weight: 500;
+  font-size: 40px;
+}
+@media screen and (max-width: 767px) {
+  main.home .home-content h2 {
+    margin: 0 0 20px;
+    font-size: 32px !important;
+  }
+}
+main.home .home-content .portfolio {
+  margin: 0 1.25vw;
+  gap: 1.25vw;
+}
+main.home .home-content .portfolio .is-layout-flex {
+  gap: 1.25vw;
+}
+@media screen and (max-width: 767px) {
+  main.home .home-content .portfolio .is-layout-flex {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+main.home .home-content .portfolio figure {
+  width: 25%;
+  overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  main.home .home-content .portfolio figure {
+    width: calc(50% - 0.625vw);
+  }
+}
+main.home .home-content .portfolio img {
+  width: 100% !important;
+  height: auto !important;
+}
+main.home .home-content .portfolio a {
+  display: block;
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+}
+main.home .home-content .portfolio a:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+main.home .home-content .section-article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2.3vw;
+  margin: 80px 1.25vw;
+}
+@media screen and (max-width: 767px) {
+  main.home .home-content .section-article {
+    margin: 40px 3vw;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+main.home .home-content .section-article p {
+  width: 50%;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+}
+@media screen and (max-width: 767px) {
+  main.home .home-content .section-article p {
+    width: 100%;
+    font-size: 16px !important;
+  }
+}
+
+main.page h1 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 40px 6.25vw 5px;
+}
+@media screen and (max-width: 767px) {
+  main.page h1 {
+    font-size: 22.4px !important;
+    margin: 20px 6.25vw 5px;
+  }
+}
+main.page .breadcrumbs {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  margin: 40px 6.25vw;
+}
+@media screen and (max-width: 767px) {
+  main.page .breadcrumbs {
+    margin: 20px 6.25vw;
+  }
+}
+main.page .breadcrumbs a {
+  color: #333;
+  text-decoration: none;
+}
+main.page .breadcrumbs a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+main.page .page-content p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  margin: 0 6.25vw;
+}
+@media screen and (max-width: 767px) {
+  main.page .page-content p {
+    font-size: 16px !important;
+  }
+}
+main.page .page-content .section-img {
+  margin: 40px 6.25vw;
+  gap: 2.35vw;
+}
+@media screen and (max-width: 767px) {
+  main.page .page-content .section-img {
+    margin: 20px 6.25vw;
+  }
+}
+main.page .page-content .section-img .is-layout-flex {
+  gap: 2.35vw;
+}
+main.page .page-content .section-img figure {
+  width: 50%;
+}
+main.page .page-content .section-img img {
+  width: 100% !important;
+}
+
+.blog-swiper {
+  width: 100%;
+  margin: 0 auto 80px;
+}
+@media screen and (max-width: 767px) {
+  .blog-swiper {
+    margin: 0 auto 40px;
+  }
+}
+.blog-swiper .blog-card {
+  display: block;
+  text-decoration: none;
+  width: 360px !important;
+  height: 410px;
+  border-radius: 6px;
+  color: #333;
+  -webkit-box-shadow: 0px 1px 6px 3px rgba(189, 189, 189, 0.22), 0px -1px 4px 3px rgba(189, 189, 189, 0.22);
+          box-shadow: 0px 1px 6px 3px rgba(189, 189, 189, 0.22), 0px -1px 4px 3px rgba(189, 189, 189, 0.22);
+  margin: 10px;
+}
+.blog-swiper .blog-card img {
+  width: 360px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 6px 6px 0 0;
+}
+.blog-swiper .blog-card .blog-card-content {
+  padding: 26px 20px;
+}
+.blog-swiper .blog-card .blog-card-title {
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  margin: 0 0 15px;
+}
+.blog-swiper .blog-card .blog-card-description {
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+.blog-swiper .blog-card .blog-card-date {
+  color: #727272;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+.contact-me {
+  font-family: "Nunito Sans", "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-bottom: 100px;
+}
+.contact-me a {
+  color: #dda5ff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.contact-me a:hover {
+  opacity: 0.7;
+}/*# sourceMappingURL=style.css.map */

@@ -4,15 +4,16 @@
 */
 ?>
 <?php get_header(); ?>
-<main class="wrap">
+<main class="wrap page">
   <section class="content-area content-thin">
     <?php if ( have_posts() ) : ?>
       <?php the_post(); ?>
       <article class="article-full">
         <header class="page-header">
-          <h1><?php the_title(); ?></h1>
+          <p class="breadcrumbs"><a href="<?= get_site_url(); ?>">top</a> / <?php the_title(); ?></p>
         </header>
         <div class="page-content">
+          <h1><?php the_title(); ?></h1>
           <?php the_content(); ?>
         </div>
       </article>
