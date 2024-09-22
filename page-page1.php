@@ -1,3 +1,8 @@
+<?php
+/*
+* Template Name: Page1 Template
+*/
+?>
 <?php get_header(); ?>
 <main class="wrap page">
   <section class="content-area content-thin">
