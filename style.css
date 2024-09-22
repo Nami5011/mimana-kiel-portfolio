@@ -5,25 +5,33 @@ body main {
   font-style: normal;
 }
 
-.group-fade-in-img img {
+.fade-in-img-container img {
   opacity: 0;
   position: relative;
-  -webkit-transform: translateY(20px);
-          transform: translateY(20px);
-  -webkit-transition: opacity 1.5s ease-in-out, -webkit-transform 1.2s ease-out;
-  transition: opacity 1.5s ease-in-out, -webkit-transform 1.2s ease-out;
-  transition: opacity 1.5s ease-in-out, transform 1.2s ease-out;
-  transition: opacity 1.5s ease-in-out, transform 1.2s ease-out, -webkit-transform 1.2s ease-out;
+  -webkit-transform: translateY(25px);
+          transform: translateY(25px);
+  -webkit-transition: opacity 0.8s ease-in-out, -webkit-transform 1.2s ease-out;
+  transition: opacity 0.8s ease-in-out, -webkit-transform 1.2s ease-out;
+  transition: opacity 0.8s ease-in-out, transform 1.2s ease-out;
+  transition: opacity 0.8s ease-in-out, transform 1.2s ease-out, -webkit-transform 1.2s ease-out;
 }
-@media screen and (max-width: 767px) {
-  .group-fade-in-img img {
-    -webkit-transition: opacity 1s ease-in-out, -webkit-transform 1.2s ease-out;
-    transition: opacity 1s ease-in-out, -webkit-transform 1.2s ease-out;
-    transition: opacity 1s ease-in-out, transform 1.2s ease-out;
-    transition: opacity 1s ease-in-out, transform 1.2s ease-out, -webkit-transform 1.2s ease-out;
-  }
+.fade-in-img-container img.fade-in {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
-.group-fade-in-img img.fade-in {
+
+.fade-in-block {
+  opacity: 0;
+  position: relative;
+  -webkit-transform: translateY(25px);
+          transform: translateY(25px);
+  -webkit-transition: opacity 0.8s ease-in-out, -webkit-transform 1.2s ease-out;
+  transition: opacity 0.8s ease-in-out, -webkit-transform 1.2s ease-out;
+  transition: opacity 0.8s ease-in-out, transform 1.2s ease-out;
+  transition: opacity 0.8s ease-in-out, transform 1.2s ease-out, -webkit-transform 1.2s ease-out;
+}
+.fade-in-block.fade-in {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
@@ -173,10 +181,10 @@ main.home .home-content .portfolio img {
 }
 main.home .home-content .portfolio a {
   display: block;
-  -webkit-transition: -webkit-transform 0.3s ease-in;
-  transition: -webkit-transform 0.3s ease-in;
-  transition: transform 0.3s ease-in;
-  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
 }
 main.home .home-content .portfolio a:hover {
   -webkit-transform: scale(1.05);
@@ -295,16 +303,38 @@ main.page .page-content .section-img img {
   -webkit-box-shadow: 0px 1px 6px 3px rgba(189, 189, 189, 0.22), 0px -1px 4px 3px rgba(189, 189, 189, 0.22);
           box-shadow: 0px 1px 6px 3px rgba(189, 189, 189, 0.22), 0px -1px 4px 3px rgba(189, 189, 189, 0.22);
   margin: 10px;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+@media screen and (max-width: 767px) {
+  .blog-swiper .blog-card {
+    width: 80vw !important;
+    max-width: 360px !important;
+    height: 370px;
+  }
+}
+.blog-swiper .blog-card:hover {
+  opacity: 0.7;
 }
 .blog-swiper .blog-card img {
-  width: 360px;
+  width: 100%;
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 6px 6px 0 0;
 }
+@media screen and (max-width: 767px) {
+  .blog-swiper .blog-card img {
+    height: 160px;
+  }
+}
 .blog-swiper .blog-card .blog-card-content {
   padding: 26px 20px;
+}
+@media screen and (max-width: 767px) {
+  .blog-swiper .blog-card .blog-card-content {
+    padding: 20.8px 16px;
+  }
 }
 .blog-swiper .blog-card .blog-card-title {
   font-size: 20px;
@@ -313,19 +343,31 @@ main.page .page-content .section-img img {
   font-weight: 500;
   margin: 0 0 15px;
 }
+@media screen and (max-width: 767px) {
+  .blog-swiper .blog-card .blog-card-title {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+}
 .blog-swiper .blog-card .blog-card-description {
   font-size: 14px;
   line-height: 1.4;
   letter-spacing: 0.02em;
   font-weight: 400;
-  margin: 0 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
 }
-.blog-swiper .blog-card .blog-card-date {
-  color: #727272;
-  font-size: 12px;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  font-weight: 400;
+
+footer {
+  margin-top: 80px;
+}
+@media screen and (max-width: 767px) {
+  footer {
+    margin-top: 40px;
+  }
 }
 
 .contact-me {
@@ -339,10 +381,16 @@ main.page .page-content .section-img img {
   letter-spacing: -0.01em;
   margin-bottom: 100px;
 }
+@media screen and (max-width: 767px) {
+  .contact-me {
+    font-size: 32px;
+  }
+}
 .contact-me a {
   color: #dda5ff;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  text-decoration-thickness: 2px;
 }
 .contact-me a:hover {
   opacity: 0.7;

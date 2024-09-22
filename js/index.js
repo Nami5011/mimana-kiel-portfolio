@@ -1,17 +1,15 @@
 // fade in images
-const images = document.querySelectorAll('img');
+const images = document.querySelectorAll('.fade-in-img-container img, .fade-in-block');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting) {
     const target = entry.target;
-    // target.setAttribute('src', target.dataset.src);
     target.classList.add('fade-in');
-    target.classList.add('slide-up');
     observer.unobserve(target);
     }
   });
 }, {
- threshold: 0.1
+ threshold: 0.2
 });
 if (images) {
   images.forEach(image => observer.observe(image));
@@ -27,6 +25,9 @@ setTimeout(() => {
 
 // blog slider
 $(document).ready(function(){
+  if ($('.blog-swiper').length === 0) {
+    return;
+  }
   $('.blog-swiper').slick({
     autoplay: true,
     autoplaySpeed: 4000,
@@ -38,6 +39,7 @@ $(document).ready(function(){
     slidesToScroll: 1,
     lazyLoad: 'progressive',
     pauseOnHover: true,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 767,

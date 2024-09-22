@@ -1,54 +1,38 @@
 @import "mixin";
 
-
-// .group-fade-in-img {
-//   img {
-//     opacity: 0;
-//     position: relative;
-//     top: 10px;
-//   }
-//   img.fade-in {
-//     animation-duration: 1.5s;
-//     animation-name: fade-in;
-//     opacity: 1;
-//     top: 0;
-//   }
-//   img.slide-up {
-    
-//   }
-// }
-
-// @keyframes fade-in {
-//   from {
-//     opacity: 0;
-//     top: 10px;
-//   }
-//   to {
-//     opacity: 1;
-//     top: 0;
-//   }
-// }
 body main {
   color: #333;
   @include nunito_sans;
 }
 
-.group-fade-in-img {
+// fade in 
+@mixin fade-in-origin {
+  opacity: 0;
+  position: relative;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease-in-out, transform 1.2s ease-out;
+}
+@mixin fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-img-container {
   img {
-    opacity: 0;
-    position: relative;
-    transform: translateY(20px);
-    transition: opacity 1.5s ease-in-out, transform 1.2s ease-out;
-    @include sp {
-      transition: opacity 1s ease-in-out, transform 1.2s ease-out;
-    }
+    @include fade-in-origin;
   }
   img.fade-in {
-    opacity: 1;
-    transform: translateY(0);
+    @include fade-in;
   }
 }
 
+.fade-in-block {
+  @include fade-in-origin;
+  &.fade-in {
+    @include fade-in;
+  }
+}
+
+// scroll navi
 .scroll-nav {
   animation: scroll-nav 1.7s ease-out;
   animation-iteration-count: infinite;
@@ -163,7 +147,7 @@ main.home {
       }
       a {
         display: block;
-        transition: transform .3s ease-in;
+        transition: transform .2s ease-in;
         &:hover {
           transform: scale(1.05);
         }
@@ -257,6 +241,7 @@ main.page {
   }
 }
 
+// Blog cards
 .blog-swiper {
   width: 100%;
   margin: 0 auto 80px;
@@ -272,14 +257,29 @@ main.page {
     color: #333;
     box-shadow: 0px 1px 6px 3px rgba(189,189,189,0.22), 0px -1px 4px 3px rgba(189,189,189,0.22);
     margin: 10px;
+    transition: opacity 0.3s ease;
+    @include sp {
+      width: 80vw!important;
+      max-width: 360px!important;
+      height: 370px;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
     img {
-      width: 360px;
+      width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 6px 6px 0 0;
+      @include sp {
+        height: calc(200px * 0.8);
+      }
     }
     .blog-card-content {
       padding: 26px 20px;
+      @include sp {
+        padding: calc(26px * 0.8) calc(20px * 0.8);
+      }
     }
     .blog-card-title {
       font-size: 20px;
@@ -287,24 +287,32 @@ main.page {
       letter-spacing: 0.02em;
       font-weight: 500;
       margin: 0 0 15px;
+      @include sp {
+        font-size: 18px;
+        margin: 0 0 10px;
+      }
     }
     .blog-card-description {
       font-size: 14px;
       line-height: 1.4;
       letter-spacing: 0.02em;
       font-weight: 400;
-      margin: 0 0 10px;
-    }
-    .blog-card-date {
-      color: #727272;
-      font-size: 12px;
-      line-height: 1.4;
-      letter-spacing: 0.02em;
-      font-weight: 400;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
     }
   }
 }
 
+// Footer
+footer {
+  margin-top: 80px;
+  @include sp {
+    margin-top: 40px;
+  }
+}
 .contact-me {
   @include nunito_sans;
 
@@ -314,9 +322,13 @@ main.page {
   line-height: 1.4;
   letter-spacing: -0.01em;
   margin-bottom: 100px;
+  @include sp {
+    font-size: calc(40px * 0.8);
+  }
   a {
     color: #dda5ff;
     transition: all 0.3s ease;
+    text-decoration-thickness: 2px;
     &:hover {
       opacity: 0.7;
     }

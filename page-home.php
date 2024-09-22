@@ -26,21 +26,14 @@
             $ogp = get_blog_urls();
             if(!empty($ogp)) :
             ?>
-              <div class="blog-swiper">
+              <div class="blog-swiper fade-in-block">
                 <?php foreach($ogp as $url => $ogp_array) : ?>
-                    <a href="<?= $url ?>" class="blog-card">
+                    <a href="<?= $url ?>" target="_blank" class="blog-card">
                     <article>
                       <img src="<?= $ogp_array['image'] ?>" alt="article thumbnail image" width="360" height="200">
                       <div class="blog-card-content">
                         <p class="blog-card-title"><?= $ogp_array['title'] ?></p>
                         <p class="blog-card-description"><?= $ogp_array['description'] ?></p>
-                        <?php
-                        if (!empty($ogp_array['published_time'])) :
-                        $date = new DateTime($ogp_array['published_time']);
-                        $formattedDate = $date->format('F j, Y');
-                        ?>
-                          <p class="blog-card-date"><?= $formattedDatez ?></p>
-                        <?php endif; ?>
                       </div>
                     </article>
                     </a>
@@ -50,8 +43,6 @@
           </section>
         </div>
       </article>
-    <?php else : ?>
-      <p>Sorry, no page content was found!</p>
     <?php endif; ?>
   </section><?php get_sidebar(); ?>
 </main>
