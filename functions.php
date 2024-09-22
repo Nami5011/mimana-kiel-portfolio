@@ -7,6 +7,7 @@ function add_normalize_CSS() {
 
 add_action('wp_enqueue_scripts', 'add_normalize_CSS');
 
+// DOES NOT WORK curl_multi_exec ON FREE HOSTING
 function getOGPFromMultipleUrls($urls) {
   // Initialize the multi cURL handler
   $multiCurl = curl_multi_init();
@@ -46,6 +47,27 @@ function getOGPFromMultipleUrls($urls) {
   return $ogpDataList;
 }
 
+function getOGPList($urls) {
+  // Initialize the multi cURL handler
+  $ogpDataList = [];
+
+  // Create cURL handles for each URL and add them to the multi handler
+  foreach ($urls as $url) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0'); // Pretend to be a browser to avoid blocks
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10); // Timeout for the request
+    $html = curl_exec($ch);
+    curl_close($ch);
+    $ogpDataList[$url] = parseOGP($html);
+  }
+
+  return $ogpDataList;
+}
+
 // Helper function to parse OGP tags from HTML content
 function parseOGP($html) {
   $ogpData = [];
@@ -75,7 +97,7 @@ function get_blog_urls() {
     }
   }
 
-  $ogpDataList = getOGPFromMultipleUrls($blog_url_list);
+  $ogpDataList = getOGPList($blog_url_list);
 
   return $ogpDataList;
 }
