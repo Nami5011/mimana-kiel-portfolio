@@ -7,29 +7,6 @@ function add_normalize_CSS() {
 
 add_action('wp_enqueue_scripts', 'add_normalize_CSS');
 
-
-// // Register a new sidebar simply named 'sidebar'
-// function add_widget_support() {
-//   register_sidebar( array(
-//                   'name'          => 'Sidebar',
-//                   'id'            => 'sidebar',
-//                   'before_widget' => '<div>',
-//                   'after_widget'  => '</div>',
-//                   'before_title'  => '<h2>',
-//                   'after_title'   => '</h2>',
-//   ) );
-// }
-// // Hook the widget initiation and run our function
-// add_action( 'widgets_init', 'add_widget_support' );
-
-// // Register a new navigation menu
-// function add_Main_Nav() {
-// 	register_nav_menu('header-menu',__( 'Header Menu' ));
-// }
-// // Hook to the init action hook, run our navigation menu function
-// add_action( 'init', 'add_Main_Nav' );
-
-
 function getOGPFromMultipleUrls($urls) {
   // Initialize the multi cURL handler
   $multiCurl = curl_multi_init();
@@ -71,18 +48,8 @@ function getOGPFromMultipleUrls($urls) {
 
 // Helper function to parse OGP tags from HTML content
 function parseOGP($html) {
-  // $doc = new DOMDocument();
-  // @$doc->loadHTML($html); // Suppress warnings in case of malformed HTML
   $ogpData = [];
-  // $metaTags = $doc->getElementsByTagName('meta');
 
-  // foreach ($metaTags as $meta) {
-  //     if ($meta->hasAttribute('property') && strpos($meta->getAttribute('property'), 'og:') === 0) {
-  //         $property = $meta->getAttribute('property');
-  //         $content = $meta->getAttribute('content');
-  //         $ogpData[$property] = $content;
-  //     }
-  // }
   $flag = preg_match_all("|<meta property=[\"']og:([^\"']+)[\"'] content=[\"']([^\"']+)[\"'].*?>|", $html, $result);
 
   if($flag > 0){
@@ -110,13 +77,5 @@ function get_blog_urls() {
 
   $ogpDataList = getOGPFromMultipleUrls($blog_url_list);
 
-  // foreach ($ogpDataList as $url => $ogpData) {
-  //     echo "OGP Data for $url:\n";
-  //     print_r($ogpData);
-  //     echo "\n";
-  // }
-  
-
   return $ogpDataList;
-
 }

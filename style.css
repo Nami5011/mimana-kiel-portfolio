@@ -159,6 +159,7 @@ main.home .home-content .portfolio {
 }
 main.home .home-content .portfolio .is-layout-flex {
   gap: 1.25vw;
+  width: 100%;
 }
 @media screen and (max-width: 767px) {
   main.home .home-content .portfolio .is-layout-flex {
@@ -225,12 +226,12 @@ main.page h1 {
   font-size: 28px;
   font-weight: 500;
   line-height: 1.4;
-  margin: 40px 6.25vw 5px;
+  margin: 40px 6.5vw 5px;
 }
 @media screen and (max-width: 767px) {
   main.page h1 {
     font-size: 22.4px !important;
-    margin: 20px 6.25vw 5px;
+    margin: 20px 1.25vw 5px;
   }
 }
 main.page .breadcrumbs {
@@ -238,11 +239,11 @@ main.page .breadcrumbs {
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0.02em;
-  margin: 40px 6.25vw;
+  margin: 40px 6.5vw;
 }
 @media screen and (max-width: 767px) {
   main.page .breadcrumbs {
-    margin: 20px 6.25vw;
+    margin: 20px 1.25vw;
   }
 }
 main.page .breadcrumbs a {
@@ -258,30 +259,77 @@ main.page .page-content p {
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0.02em;
-  margin: 0 6.25vw;
+  margin: 0 6.5vw 40px;
 }
 @media screen and (max-width: 767px) {
   main.page .page-content p {
     font-size: 16px !important;
+    margin: 0 1.25vw 20px;
   }
 }
 main.page .page-content .section-img {
-  margin: 40px 6.25vw;
-  gap: 2.35vw;
+  margin: 1.25vw 6.5vw;
+  gap: 1.25vw;
 }
 @media screen and (max-width: 767px) {
   main.page .page-content .section-img {
-    margin: 20px 6.25vw;
+    gap: 1.25vw;
+    margin: 1.25vw 1.25vw;
   }
 }
 main.page .page-content .section-img .is-layout-flex {
-  gap: 2.35vw;
+  gap: 1.25vw;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  main.page .page-content .section-img .is-layout-flex {
+    gap: 1.25vw;
+  }
 }
 main.page .page-content .section-img figure {
   width: 50%;
 }
 main.page .page-content .section-img img {
   width: 100% !important;
+}
+main.page .page-content .wp-block-group.is-layout-flex:has(.size-large) {
+  gap: 1.25vw;
+}
+@media screen and (max-width: 767px) {
+  main.page .page-content .wp-block-group.is-layout-flex:has(.size-large) {
+    gap: 1.25vw;
+  }
+}
+main.page .page-content .wp-block-group.is-layout-flex:has(.bg-barbour) {
+  margin: 0 6.5vw;
+}
+main.page .page-content .bg-barbour {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: min(6.66%, 40px) 0;
+  background-color: #5C7A4D;
+}
+main.page .page-content .bg-barbour img {
+  width: 87.3%;
+  height: auto;
+}
+main.page .page-content .wp-block-group.is-layout-flex:has(.w-100) {
+  margin: 0 6.5vw;
+}
+main.page .page-content figure.w-100 {
+  width: 100%;
+}
+main.page .page-content figure.w-100 img {
+  width: 100%;
+  height: auto;
 }
 
 .blog-swiper {
@@ -394,4 +442,40 @@ footer {
 }
 .contact-me a:hover {
   opacity: 0.7;
+}
+
+.m-80-center {
+  margin: 80px auto;
+}
+@media screen and (max-width: 767px) {
+  .m-80-center {
+    margin: 40px auto;
+  }
+}
+
+.wp-block-embed-youtube .wp-block-embed__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media screen and (max-width: 767px) {
+  .wp-block-embed-youtube .wp-block-embed__wrapper {
+    margin: 0 1.25vw;
+  }
+}
+.wp-block-embed-youtube .wp-block-embed__wrapper iframe {
+  max-width: 800px;
+  width: 50%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  aspect-ratio: 16/9;
+}
+@media screen and (max-width: 767px) {
+  .wp-block-embed-youtube .wp-block-embed__wrapper iframe {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

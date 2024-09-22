@@ -130,6 +130,7 @@ main.home {
   
       .is-layout-flex {
         gap: 1.25vw;
+        width: 100%;
         @include sp {
           flex-wrap: wrap;
         }
@@ -181,15 +182,19 @@ main.home {
 }
 
 // page
+$page-img-gap-pc: 1.25vw;
+$page-img-gap-sp: 1.25vw;
+$page-side-margin-pc: 6.5vw;
+$page-side-margin-sp: 1.25vw;
 main.page {
   h1 {
     font-size: 28px;
     font-weight: 500;
     line-height: 1.4;
-    margin: 40px 6.25vw 5px;
+    margin: 40px $page-side-margin-pc 5px;
     @include sp {
       font-size: calc(28px * 0.8)!important;
-      margin: 20px 6.25vw 5px;
+      margin: 20px $page-side-margin-sp 5px;
     }
   }
   .breadcrumbs {
@@ -197,9 +202,9 @@ main.page {
     font-weight: 400;
     line-height: 1.4;
     letter-spacing: 0.02em;
-    margin: 40px 6.25vw;
+    margin: 40px $page-side-margin-pc;
     @include sp {
-      margin: 20px 6.25vw;
+      margin: 20px $page-side-margin-sp;
     }
     a {
       color: #333;
@@ -216,26 +221,70 @@ main.page {
       font-weight: 400;
       line-height: 1.4;
       letter-spacing: 0.02em;
-      margin: 0 6.25vw;
+      margin: 0 $page-side-margin-pc 40px;
       @include sp {
         font-size: calc(20px * 0.8)!important;
+        margin: 0 $page-side-margin-sp 20px;
       }
     }
     .section-img {
-      margin: 40px 6.25vw;
-      gap: 2.35vw;
+      margin: $page-img-gap-pc $page-side-margin-pc;
+      gap: $page-img-gap-pc;
       @include sp {
-        margin: 20px 6.25vw;
+        gap: $page-img-gap-sp;
+        margin: $page-img-gap-sp $page-side-margin-sp;
       }
       .is-layout-flex {
-        gap: 2.35vw;
-        // width: 100%;
+        gap: $page-img-gap-pc;
+        width: 100%;
+        @include sp {
+          gap: $page-img-gap-sp;
+        }
       }
       figure {
         width: 50%;
       }
       img {
         width: 100%!important;
+      }
+    }
+
+    // large image
+    .wp-block-group.is-layout-flex:has(.size-large) {
+      gap: $page-img-gap-pc;
+      @include sp {
+        gap: $page-img-gap-sp;
+      }
+    }
+
+    .wp-block-group.is-layout-flex:has(.bg-barbour) {
+      margin: 0 $page-side-margin-pc;
+    }
+
+    // Barbour website background color
+    .bg-barbour {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: min(6.66%, 40px) 0;
+      background-color: #5C7A4D;
+      img {
+        width: 87.3%;
+        height: auto;
+      }
+
+    }
+
+    // 100% width
+    .wp-block-group.is-layout-flex:has(.w-100) {
+      margin: 0 $page-side-margin-pc;
+    }
+    figure.w-100 {
+      width: 100%;
+      img {
+        width: 100%;
+        height: auto;
       }
     }
   }
@@ -331,6 +380,32 @@ footer {
     text-decoration-thickness: 2px;
     &:hover {
       opacity: 0.7;
+    }
+  }
+}
+
+// Embed youtube
+.m-80-center {
+  margin: 80px auto;
+  @include sp {
+    margin: 40px auto;
+  }
+}
+.wp-block-embed-youtube {
+  .wp-block-embed__wrapper {
+    display: flex;
+    justify-content: center;
+    @include sp {
+      margin: 0 $page-side-margin-sp;
+    }
+    iframe {
+      max-width: 800px;
+      width: 50%;
+      height: max-content;
+      aspect-ratio: 16 / 9;
+      @include sp {
+        width: 100%;
+      }
     }
   }
 }
