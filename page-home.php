@@ -20,27 +20,6 @@
         </header>
         <div class="home-content">
           <?php the_content(); ?>
-
-          <section class="section-writing">
-            <?php 
-            $ogp = get_blog_urls();
-            if(!empty($ogp)) :
-            ?>
-              <div class="blog-swiper fade-in-block">
-                <?php foreach($ogp as $url => $ogp_array) : ?>
-                    <a href="<?= $url ?>" target="_blank" class="blog-card">
-                    <article>
-                      <img src="<?= $ogp_array['image'] ?>" alt="article thumbnail image" width="360" height="200">
-                      <div class="blog-card-content">
-                        <p class="blog-card-title"><?= $ogp_array['title'] ?></p>
-                        <p class="blog-card-description"><?= $ogp_array['description'] ?></p>
-                      </div>
-                    </article>
-                    </a>
-                <?php endforeach; ?>
-              </div>
-            <?php endif; ?>
-          </section>
         </div>
       </article>
     <?php endif; ?>

@@ -2,7 +2,7 @@
 
 body main {
   color: #333;
-  @include nunito_sans;
+  @include base_font;
 }
 
 // fade in 
@@ -39,15 +39,14 @@ body main {
   transition: opacity .5s ease-in;
   opacity: 1;
   content: '';
-  width: 30px;
-  height: 30px;
-  background-image: url(img/arrow-down-linear.png?v=2);
-  background-repeat: no-repeat;
-  background-size: cover;
+  width: 12px;
+  height: 12px;
+  border-bottom: 1px solid #797979;
+  border-left: 1px solid #797979;
   position: absolute;
   bottom: 12vh;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(-45deg);
   @include sp {
     bottom: 8vh;
   }
@@ -57,13 +56,13 @@ body main {
 }
 @keyframes scroll-nav {
   0% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(-45deg);
   }
   50% {
-    transform: translateY(20px);
+    transform: translateY(20px) rotate(-45deg);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(-45deg);
   }
 }
 
@@ -87,35 +86,38 @@ main.home {
       margin: 20px 0 0;
       line-height: 1.2;
       letter-spacing: -0.01em;
-      font-size: 48px;
-      font-weight: 500;
+      font-size: 40px;
+      font-weight: 200;
       @include sp {
-        font-size: calc(48px * 0.8)!important;
+        font-size: calc(40px * 0.8)!important;
       }
     }
     .name-jp {
       margin: 0 0 10px;
-      font-size: 20px;
-      font-weight: 400;
+      font-size: 18px;
+      font-weight: 300;
       @include sp {
-        font-size: calc(20px * 0.8)!important;
+        font-size: calc(18px * 0.8)!important;
         margin: 0 0 5px;
       }
     }
     .p-professions {
-      color: #909090;
+      color: #797979;
       font-size: 16px;
       line-height: 1.4;
       font-weight: 300;
       margin: 0 0 30px;
+      @include sp {
+        font-size: calc(16px * 0.8)!important;
+      }
     }
   }
   .home-content {
     h2 {
       line-height: 1.4;
       margin: 0 0 40px;
-      font-weight: 500;
-      font-size: 40px;
+      font-weight: 200;
+      font-size: 36px;
       @include sp {
         margin: 0 0 20px;
         font-size: calc(40px * 0.8)!important;
@@ -135,47 +137,102 @@ main.home {
           flex-wrap: wrap;
         }
       }
-      figure {
-        width: 25%;
-        overflow: hidden;
-        @include sp {
-          width: calc(50% - (1.25vw / 2));
-        }
-      }
       img {
         width: 100%!important;
         height: auto!important;
       }
+      figure {
+        width: 25%;
+        height: max-content;
+        position: relative;
+        @include sp {
+          width: calc(50% - (1.25vw / 2));
+        }
+        figcaption {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 200;
+          font-size: 24px;
+          color: #fff;
+          text-align: center;
+          transition: opacity .2s ease-in;
+          cursor: pointer;
+          margin: 0;
+
+          a {
+            @include base_font;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            font-weight: 200;
+            font-size: 24px;
+            white-space: nowrap;
+            @include sp {
+              font-size: resp_sp(16);
+            }
+          }
+        }
+      }
+      figure:has(a) {
+        transition: opacity .2s ease-in;
+        &:hover {
+          opacity: 0.85;
+          figcaption {
+            opacity: 1;
+          }
+        }
+      }
       a {
         display: block;
-        transition: transform .2s ease-in;
-        &:hover {
-          transform: scale(1.05);
-        }
+        // transition: opacity .2s ease-in;
+        // &:hover {
+        //   opacity: 0.85;
+        // }
       }
     }
   }
-  // text section
+  // bio section
   .home-content {
-    .section-article {
-      display: flex;
-      gap: 2.3vw;
-      margin: 80px 1.25vw;
+    .section-bio {
+      // margin: 80px 1.25vw;
+      margin: 80px auto;
+      width: 80%;
+      font-size: 20px;
+      font-weight: 200;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+      hyphens: auto;
       @include sp {
+        font-size: calc(20px * 0.8)!important;
+        width: unset;
         margin: 40px 3vw;
-        flex-wrap: wrap;
       }
-      p {
-        width: 50%;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 1.4;
-        letter-spacing: 0.02em;
-        hyphens: auto;
-        @include sp {
-          width: 100%;
-          font-size: calc(20px * 0.8)!important;
-        }
+    }
+  }
+  // mimana's articles
+  .section-article {
+    gap: 1.25vw;
+    .is-layout-flex {
+      gap: 1.25vw;
+    }
+    img {
+      width: resp_pc(485)!important;
+      height: resp_pc(380)!important;
+      object-fit: contain;
+      box-shadow: 0 0 6px 1px rgba(204, 204, 204, 0.356);
+      transition: opacity 0.3s ease-out;
+      @include sp {
+        width: resp_sp(180)!important;
+        height: resp_sp(145)!important;
+      }
+      &:hover {
+        opacity: 0.7;
       }
     }
   }
@@ -189,7 +246,7 @@ $page-side-margin-sp: 1.25vw;
 main.page {
   h1 {
     font-size: 28px;
-    font-weight: 500;
+    font-weight: 200;
     line-height: 1.4;
     margin: 40px $page-side-margin-pc 5px;
     @include sp {
@@ -199,7 +256,7 @@ main.page {
   }
   .breadcrumbs {
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.4;
     letter-spacing: 0.02em;
     margin: 40px $page-side-margin-pc;
@@ -218,7 +275,7 @@ main.page {
   .page-content {
     p {
       font-size: 20px;
-      font-weight: 400;
+      font-weight: 200;
       line-height: 1.4;
       letter-spacing: 0.02em;
       margin: 0 $page-side-margin-pc 40px;
@@ -290,71 +347,6 @@ main.page {
   }
 }
 
-// Blog cards
-.blog-swiper {
-  width: 100%;
-  margin: 0 auto 80px;
-  @include sp {
-    margin: 0 auto 40px;
-  }
-  .blog-card {
-    display: block;
-    text-decoration: none;
-    width: 360px!important;
-    height: 410px;
-    border-radius: 6px;
-    color: #333;
-    box-shadow: 0px 1px 6px 3px rgba(189,189,189,0.22), 0px -1px 4px 3px rgba(189,189,189,0.22);
-    margin: 10px;
-    transition: opacity 0.3s ease;
-    @include sp {
-      width: 80vw!important;
-      max-width: 360px!important;
-      height: 370px;
-    }
-    &:hover {
-      opacity: 0.7;
-    }
-    img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px 6px 0 0;
-      @include sp {
-        height: calc(200px * 0.8);
-      }
-    }
-    .blog-card-content {
-      padding: 26px 20px;
-      @include sp {
-        padding: calc(26px * 0.8) calc(20px * 0.8);
-      }
-    }
-    .blog-card-title {
-      font-size: 20px;
-      line-height: 1.4;
-      letter-spacing: 0.02em;
-      font-weight: 500;
-      margin: 0 0 15px;
-      @include sp {
-        font-size: 18px;
-        margin: 0 0 10px;
-      }
-    }
-    .blog-card-description {
-      font-size: 14px;
-      line-height: 1.4;
-      letter-spacing: 0.02em;
-      font-weight: 400;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      -webkit-box-orient: vertical;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-    }
-  }
-}
-
 // Footer
 footer {
   margin-top: 80px;
@@ -363,11 +355,12 @@ footer {
   }
 }
 .contact-me {
-  @include nunito_sans;
+  @include base_font;
+  color: #333;
 
   text-align: center;
   font-size: 40px;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 1.4;
   letter-spacing: -0.01em;
   margin-bottom: 100px;
