@@ -22,31 +22,3 @@ setTimeout(() => {
     scroll_nav.forEach(item => item.classList.add('scroll-nav-hide'));
   }
 }, 3000);
-
-// blog slider
-$(document).ready(function(){
-  if ($('.blog-swiper').length === 0) {
-    return;
-  }
-  $('.blog-swiper').slick({
-    autoplay: true,
-    autoplaySpeed: 4000,
-    infinite: true,
-    dots: false,
-    arrows: false,
-    centerMode: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    lazyLoad: 'progressive',
-    pauseOnHover: true,
-    variableWidth: true,
-    responsive: [
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 1,
-        }
-      },
-    ]
-  });
-});
