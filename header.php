@@ -6,7 +6,7 @@
 	<title><?php bloginfo('name'); ?> &raquo; <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?v=2">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/">
   <script src="<?php echo get_template_directory_uri(); ?>/js/index.js" defer="defer"></script>
 
