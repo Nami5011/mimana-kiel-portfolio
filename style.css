@@ -38,6 +38,24 @@ body main {
           transform: translateY(0);
 }
 
+.section-fv.fade-in {
+  opacity: 0;
+  -webkit-transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
+}
+.section-fv.fade-in.lazyloaded {
+  opacity: 1;
+}
+
+main.page figure {
+  opacity: 0;
+  -webkit-transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
+}
+main.page figure.fade-in.lazyloaded {
+  opacity: 1;
+}
+
 .scroll-nav {
   -webkit-animation: scroll-nav 1.7s ease-out;
           animation: scroll-nav 1.7s ease-out;

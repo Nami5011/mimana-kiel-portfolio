@@ -3,16 +3,34 @@ const images = document.querySelectorAll('.fade-in-img-container img, .fade-in-b
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting) {
-    const target = entry.target;
-    target.classList.add('fade-in');
-    observer.unobserve(target);
+      const target = entry.target;
+      target.classList.add('fade-in');
+      observer.unobserve(target);
     }
   });
 }, {
- threshold: 0.2
+  threshold: 0.2
 });
 if (images) {
   images.forEach(image => observer.observe(image));
+}
+
+const pageImages = document.querySelectorAll('main.page figure');
+const pageObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      const target = entry.target;
+      target.classList.add('fade-in');
+      pageObserver.unobserve(target);
+    }
+  });
+}, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.1
+});
+if (pageImages) {
+  pageImages.forEach(image => pageObserver.observe(image));
 }
 
 // scroll nav
