@@ -452,6 +452,14 @@ footer {
       }
     }
   }
+  &.w-100 {
+    .wp-block-embed__wrapper {
+      iframe {
+        max-width: unset;
+        width: 100%;
+      }
+    }
+  }
 }
 
 .magazine-shadow {
