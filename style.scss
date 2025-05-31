@@ -359,6 +359,12 @@ main.page {
     // 100% width
     .wp-block-group.is-layout-flex:has(.w-100) {
       margin: 0 $page-side-margin-pc;
+      @include sp {
+        margin: 0 $page-side-margin-sp;
+        .wp-block-embed__wrapper {
+          margin: 0;
+        }
+      }
     }
     figure.w-100 {
       width: 100%;

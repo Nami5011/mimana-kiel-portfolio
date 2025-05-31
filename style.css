@@ -409,6 +409,14 @@ main.page .page-content .bg-barbour img {
 main.page .page-content .wp-block-group.is-layout-flex:has(.w-100) {
   margin: 0 6.5vw;
 }
+@media screen and (max-width: 767px) {
+  main.page .page-content .wp-block-group.is-layout-flex:has(.w-100) {
+    margin: 0 1.25vw;
+  }
+  main.page .page-content .wp-block-group.is-layout-flex:has(.w-100) .wp-block-embed__wrapper {
+    margin: 0;
+  }
+}
 main.page .page-content figure.w-100 {
   width: 100%;
 }
